@@ -39,7 +39,7 @@ class UserRepository implements UserRepositoryInterface
         }
 
         if (method_exists($model, 'findForPassport')) {
-            $user = (new $model)->findForPassport($username);
+            $user = (new $model)->findForPassport($username, $password); //for AD Auth
         } else {
             $user = (new $model)->where('email', $username)->first();
         }
